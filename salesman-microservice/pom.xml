@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>in.microservice</groupId>
 	<artifactId>salesman-microservice</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>salesman-microservice</name>
 	<description>This is micro service for salesman</description>
 
