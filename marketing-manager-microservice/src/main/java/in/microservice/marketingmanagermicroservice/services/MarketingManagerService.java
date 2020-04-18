@@ -2,6 +2,8 @@ package in.microservice.marketingmanagermicroservice.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -11,18 +13,22 @@ import in.microservice.marketingmanagermicroservice.bean.Order;
 @Service
 public class MarketingManagerService {
 
-//	@Autowired
-	private WebClient salesmanWebClient = WebClient.builder()
-			.baseUrl("localhost:8081/salesman").build();
-	private WebClient orderWebClient = WebClient.builder()
-			.baseUrl("http://localhost:8082/orders/").build();
-	private WebClient customerWebClient = WebClient.builder()
-			.baseUrl("http://localhost:8083/customers/").build();
+	@Autowired
+	@Qualifier(value = "salesmanWebClient")
+	private WebClient salesmanWebClient;
+	
+	@Autowired
+	@Qualifier(value = "ordersWebClient")
+	private WebClient orderWebClient;
+	
+	@Autowired
+	@Qualifier(value = "customerWebClient")
+	private WebClient customerWebClient;
 	
 	public List<Customer> getAllCustomers() {
 		
 		return customerWebClient.get()
-				.uri("all")
+				.uri("http://customer-microservice/customers/all")
 				.retrieve()
 				.bodyToFlux(Customer.class)
 				.collectList()
