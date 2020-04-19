@@ -28,7 +28,7 @@ public class MarketingManagerService {
 	public List<Customer> getAllCustomers() {
 		
 		return customerWebClient.get()
-				.uri("http://customer-microservice/customers/all")
+				.uri("all")
 				.retrieve()
 				.bodyToFlux(Customer.class)
 				.collectList()

@@ -1,3 +1,5 @@
 1. What is @LoadBalanced?
 2. What is @EnableEurekaClient?
 3. What is @LoadBalancerClient?
+4. Diff between @EnableEurekaClient and @EnableDiscoveryClient?
+5. https://cloud.spring.io/spring-cloud-commons/2.1.x/multi/multi__spring_cloud_commons_common_abstractions.html
