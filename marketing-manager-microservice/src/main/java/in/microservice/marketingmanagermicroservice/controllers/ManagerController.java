@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import in.microservice.marketingmanagermicroservice.bean.Customer;
+import in.microservice.marketingmanagermicroservice.bean.Order;
 import in.microservice.marketingmanagermicroservice.services.MarketingManagerService;
 
 @RestController
@@ -26,5 +27,9 @@ public class ManagerController {
 	@GetMapping(value = "customer/order/{id}")
 	public Customer getCustomerByOrderId(@PathVariable int id) {
 		return service.getCustomerForOrderId(id);
+	}
+	@GetMapping(value = "orders/customer/{id}")
+	public List<Order> getOrdersOfCustomerId(@PathVariable int id) {
+		return service.getOrdersOfCustomerId(id);
 	}
 }
