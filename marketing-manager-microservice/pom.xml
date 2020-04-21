@@ -10,11 +10,12 @@
 	</parent>
 	<groupId>in.microservice</groupId>
 	<artifactId>marketing-manager-microservice</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>marketing-manager-microservice</name>
 	<description>This is micro service for marketing client</description>
 
 	<properties>
+		<start-class>in.microservice.marketingmanagermicroservice.MarketingManagerMicroserviceApplication</start-class>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 	</properties>

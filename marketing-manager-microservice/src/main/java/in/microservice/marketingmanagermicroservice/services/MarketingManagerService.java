@@ -11,6 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import in.microservice.marketingmanagermicroservice.bean.Customer;
 import in.microservice.marketingmanagermicroservice.bean.Order;
+import in.microservice.marketingmanagermicroservice.exceptions.NoDataFoundException;
 
 @Service
 public class MarketingManagerService {
@@ -48,6 +49,9 @@ public class MarketingManagerService {
 	public Customer getCustomerForOrderId(int id) {
 		
 		Order order = getOrder(id);
+		if (order == null) {
+			throw new NoDataFoundException("Could not find order with id-" + id);
+		}
 		int customerId = order.getCustomerId();
 		return customerWebClient.get()
 				.uri("{id}", customerId)
@@ -70,7 +74,7 @@ public class MarketingManagerService {
 				.block();
 		
 		if (customer == null) {
-			return null;
+			throw new NoDataFoundException("Could not find customer with id-" + customerId);
 		}
 		return getMapOfCustomerIdOrder().get(customer.getId());
 	}

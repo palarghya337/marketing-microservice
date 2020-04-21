@@ -3,3 +3,10 @@
 3. What is @LoadBalancerClient?
 4. Diff between @EnableEurekaClient and @EnableDiscoveryClient?
 5. https://cloud.spring.io/spring-cloud-commons/2.1.x/multi/multi__spring_cloud_commons_common_abstractions.html
+6. What is fault tollerant?
+7. What is resilience?
+8. What is ribben?
+9. How to add timeout?
+10. How we server works? → https://howtodoinjava.com/spring-webflux/spring-webflux-tutorial/
+11. How to set timeout globally?
+12. Difference between response() and exchange() method in webclient? → https://stackoverflow.com/questions/58410352/spring-boot-webclients-retrieve-vs-exchange
