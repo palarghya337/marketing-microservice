@@ -16,7 +16,7 @@ public class SalesmanService {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(SalesmanService.class);
 	@Autowired
-	private SalesmanRepository repository;
+	private SalesmanRepository<Integer> repository;
 
 	public List<Salesman> getSalesmanList() {
 		return repository.findAll();

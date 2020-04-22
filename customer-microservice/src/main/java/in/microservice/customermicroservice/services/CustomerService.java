@@ -17,7 +17,7 @@ public class CustomerService {
 			.getLogger(CustomerService.class);
 	
 	@Autowired
-	private CustomerRepository repository;
+	private CustomerRepository<Integer> repository;
 	
 	public List<Customer> getCustomers() {
 		return repository.findAll();

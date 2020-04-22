@@ -17,7 +17,7 @@ public class OrderService {
 			.getLogger(OrderService.class);
 	
 	@Autowired
-	private OrderRepository repository;
+	private OrderRepository<Integer> repository;
 	
 	public List<Order> getOrders() {
 		return repository.findAll();

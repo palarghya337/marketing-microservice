@@ -1,10 +1,15 @@
 package in.microservice.ordersmicroservice.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
 
 import in.microservice.ordersmicroservice.bean.Order;
 
-public interface OrderRepository
-	extends JpaRepository<Order, Integer>{
-
+public interface OrderRepository<IDType> {
+	List<Order> findAll();
+	Optional<Order> findById(IDType id);
+	void deleteAll();
+	void deleteById(IDType id);
+	Order save(Order element);
+	Order saveAndFlush(Order element);
 }

@@ -1,12 +1,15 @@
 package in.microservice.salesmanmicroservice.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
 
 import in.microservice.salesmanmicroservice.bean.Salesman;
 
-@Repository
-public interface SalesmanRepository
-	extends JpaRepository<Salesman, Integer>{
-
+public interface SalesmanRepository<IDType> {
+	List<Salesman> findAll();
+	Optional<Salesman> findById(IDType id);
+	void deleteAll();
+	void deleteById(IDType id);
+	Salesman save(Salesman element);
+	Salesman saveAndFlush(Salesman element);
 }
