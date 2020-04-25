@@ -13,14 +13,19 @@ import javax.persistence.Table;
 public class Salesman {
 
 	@Id
-	@SequenceGenerator(initialValue = 101, name = "sg")
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "sg")
+	@SequenceGenerator(initialValue = 1001,
+		name = "salesman_sequence_generator")
+	@GeneratedValue(strategy = GenerationType.AUTO,
+		generator = "salesman_sequence_generator")
 	@Column(name = "id")
 	private Integer id;
+	
 	@Column(name = "salesman_name")
 	private String name;
+	
 	@Column(name = "city")
 	private String city;
+	
 	@Column(name = "commission")
 	private double commission;
 	

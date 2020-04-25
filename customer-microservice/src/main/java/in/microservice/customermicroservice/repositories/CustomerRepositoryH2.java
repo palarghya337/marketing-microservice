@@ -26,7 +26,6 @@ public class CustomerRepositoryH2
 		customer.setName("customerOne");
 		customer.setCity("city1");
 		customer.setGrade(6);
-		customer.setSalesmanId(1001);
 		customers = new HashMap<>();
 		save(customer);
 	}

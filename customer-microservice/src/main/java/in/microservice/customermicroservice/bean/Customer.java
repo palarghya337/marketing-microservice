@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Customer {
 
 	@Id
-	@Column(name = "customer_id")
+	@Column(name = "id")
 	@SequenceGenerator(initialValue = 1001, name = "customerSequenceGenerator")
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "customerSequenceGenerator")
 	private int id;
@@ -26,10 +26,6 @@ public class Customer {
 	
 	@Column(name = "grade")
 	private int grade;
-	
-	@Column(name = "salesman_id", nullable = false)
-	private int salesmanId;
-
 	
 	public Customer() {
 	}
@@ -66,14 +62,6 @@ public class Customer {
 		this.grade = grade;
 	}
 
-	public int getSalesmanId() {
-		return salesmanId;
-	}
-
-	public void setSalesmanId(int salesmanId) {
-		this.salesmanId = salesmanId;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,7 +70,6 @@ public class Customer {
 		result = prime * result + grade;
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + salesmanId;
 		return result;
 	}
 
@@ -109,14 +96,11 @@ public class Customer {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (salesmanId != other.salesmanId)
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", city=" + city + ", grade=" + grade + ", salesmanId="
-				+ salesmanId + "]";
+		return "Customer [id=" + id + ", name=" + name + ", city=" + city + ", grade=" + grade + "]";
 	}
 }

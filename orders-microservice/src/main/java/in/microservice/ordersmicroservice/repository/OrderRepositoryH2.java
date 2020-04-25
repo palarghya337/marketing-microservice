@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 import in.microservice.ordersmicroservice.bean.Order;
 
 @Repository
-public class OrderRepositoryH2 implements OrderRepository<Integer> {
+public class OrderRepositoryH2
+	implements OrderRepository<Integer> {
 
 	private Map<Integer, Order> orderMap;
 	
@@ -23,11 +24,9 @@ public class OrderRepositoryH2 implements OrderRepository<Integer> {
 	private void init() {
 		
 		Order order = new Order();
-		order.setCustomerId(1001);
 		order.setDateTime(LocalDateTime.now());
 		order.setOrderNumber(101);
 		order.setPurchaseAmt(5632.42);
-		order.setSalesmanId(1001);
 		orderMap = new HashMap<>();
 		save(order);
 	}
